@@ -1,5 +1,7 @@
+import LatestIssues from "./LatestIssues";
+
 const HomePage = () => {
-  return <div>HomePage</div>;
+  return <LatestIssues />;
 };
 
 export default HomePage;
