@@ -2,6 +2,7 @@ import prisma from "@/prisma/client";
 import dynamic from "next/dynamic";
 import { notFound } from "next/navigation";
 import IssueFormSkeleton from "./loading";
+import { Metadata } from "next";
 
 const IssueForm = dynamic(() => import("@/app/issues/_components/IssueForm"), {
   ssr: false,
@@ -25,3 +26,8 @@ const EditIssuePage = async ({ params }: Props) => {
 };
 
 export default EditIssuePage;
+
+export const metadata: Metadata = {
+  title: "Issue Tracker - Edit Issue",
+  description: "Update project issue details",
+};
