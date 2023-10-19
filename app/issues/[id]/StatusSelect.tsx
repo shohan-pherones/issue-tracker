@@ -1,10 +1,16 @@
 "use client";
 
-import { Issue } from "@prisma/client";
+import { Issue, Status } from "@prisma/client";
 import { Select } from "@radix-ui/themes";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
+
+const statuses: { label: string; value?: Status }[] = [
+  { label: "Open", value: "OPEN" },
+  { label: "In Progress", value: "IN_PROGRESS" },
+  { label: "Closed", value: "CLOSED" },
+];
 
 const StatusSelect = ({ issue }: { issue: Issue }) => {
   const router = useRouter();
@@ -25,10 +31,11 @@ const StatusSelect = ({ issue }: { issue: Issue }) => {
       <Select.Trigger placeholder="Update Status..." />
       <Select.Content>
         <Select.Group>
-          <Select.Label>Issue Status</Select.Label>
-          <Select.Item value="OPEN">Open</Select.Item>
-          <Select.Item value="IN_PROGRESS">In Progress</Select.Item>
-          <Select.Item value="CLOSED">Closed</Select.Item>
+          {statuses.map((status) => (
+            <Select.Item key={status.value} value={status.value!}>
+              {status.label}
+            </Select.Item>
+          ))}
         </Select.Group>
       </Select.Content>
     </Select.Root>
