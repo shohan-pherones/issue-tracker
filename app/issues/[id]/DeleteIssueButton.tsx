@@ -28,7 +28,7 @@ const DeleteIssueButton = ({ issueId }: { issueId: number }) => {
     <>
       <AlertDialog.Root>
         <AlertDialog.Trigger>
-          <Button color="red" disabled={isDeleting}>
+          <Button color="crimson" disabled={isDeleting}>
             {isDeleting && <Spinner />} Delete Issue
           </Button>
         </AlertDialog.Trigger>
@@ -45,7 +45,7 @@ const DeleteIssueButton = ({ issueId }: { issueId: number }) => {
               </Button>
             </AlertDialog.Cancel>
             <AlertDialog.Action>
-              <Button variant="solid" color="red" onClick={handleDelete}>
+              <Button variant="solid" color="crimson" onClick={handleDelete}>
                 Confirm Delete
               </Button>
             </AlertDialog.Action>
