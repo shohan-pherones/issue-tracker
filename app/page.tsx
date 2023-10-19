@@ -1,9 +1,9 @@
 import prisma from "@/prisma/client";
 import { Flex, Grid } from "@radix-ui/themes";
+import { Metadata } from "next";
 import IssueChart from "./IssueChart";
 import IssueSummary from "./IssueSummary";
 import LatestIssues from "./LatestIssues";
-import { Metadata } from "next";
 
 const HomePage = async () => {
   const open = await prisma.issue.count({ where: { status: "OPEN" } });
@@ -22,6 +22,7 @@ const HomePage = async () => {
     </Grid>
   );
 };
+export const dynamic = "force-dynamic";
 
 export default HomePage;
 

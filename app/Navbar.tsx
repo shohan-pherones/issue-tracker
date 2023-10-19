@@ -1,5 +1,6 @@
 "use client";
 
+import { Skeleton } from "@/app/components";
 import {
   Avatar,
   Box,
@@ -13,7 +14,6 @@ import { useSession } from "next-auth/react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AiFillBug } from "react-icons/ai";
-import { Skeleton } from "@/app/components";
 
 const Navbar = () => {
   return (

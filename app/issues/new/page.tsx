@@ -1,6 +1,6 @@
+import { Metadata } from "next";
 import dynamic from "next/dynamic";
 import IssueFormSkeleton from "./loading";
-import { Metadata } from "next";
 
 const IssueForm = dynamic(() => import("@/app/issues/_components/IssueForm"), {
   ssr: false,

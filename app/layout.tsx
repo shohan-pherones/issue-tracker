@@ -16,6 +16,7 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: "Issue Tracker - Home",
+  description: "An advanced issue tracking web application",
 };
 
 export default function RootLayout({
@@ -28,7 +29,7 @@ export default function RootLayout({
       <body className={inter.variable}>
         <QueryClientProvider>
           <AuthProvider>
-            <Theme accentColor="teal">
+            <Theme accentColor="teal" appearance="light">
               <Toaster />
               <Navbar />
               <main className="p-5">
