@@ -9,20 +9,19 @@ import toast from "react-hot-toast";
 const StatusSelect = ({ issue }: { issue: Issue }) => {
   const router = useRouter();
 
+  const handleUpdateStatus = async (status: string) => {
+    try {
+      await axios.patch("/api/issues/" + issue.id, {
+        status,
+      });
+      router.refresh();
+    } catch (error) {
+      toast.error("Changes could not be saved.");
+    }
+  };
+
   return (
-    <Select.Root
-      defaultValue={issue.status}
-      onValueChange={async (status) => {
-        try {
-          await axios.patch("/api/issues/" + issue.id, {
-            status,
-          });
-          router.refresh();
-        } catch (error) {
-          toast.error("Changes could not be saved.");
-        }
-      }}
-    >
+    <Select.Root defaultValue={issue.status} onValueChange={handleUpdateStatus}>
       <Select.Trigger placeholder="Update Status..." />
       <Select.Content>
         <Select.Group>
